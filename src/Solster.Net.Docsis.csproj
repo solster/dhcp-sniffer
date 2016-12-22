@@ -7,12 +7,12 @@
     <ProjectGuid>{7F15F26F-0CBF-4B3D-8241-AD41890245FF}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <AssemblyName>Solster</AssemblyName>
+    <AssemblyName>Solster.Net.Bootstrap</AssemblyName>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -21,7 +21,8 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <RootNamespace>System</RootNamespace>
-    <ApplicationIcon>solster.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
     <SccProjectName>Svn</SccProjectName>
     <SccLocalPath>Svn</SccLocalPath>
     <SccAuxPath>Svn</SccAuxPath>
@@ -66,45 +67,36 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Networking\Protocols\Bootstrap\BootstrapScanner.Designer.cs">
+    <Compile Include="Bootstrap\BootstrapScanner.Designer.cs">
       <DependentUpon>BootstrapScanner.cs</DependentUpon>
     </Compile>
-    <Compile Include="Runtime\Versioning\Updater.cs">
+    <Compile Include="Bootstrap\BootstrapConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bootstrap\BootstrapConfigurationSetting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bootstrap\BootstrapMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bootstrap\BootstrapQueryType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bootstrap\BootstrapScanner.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Runtime\Versioning\Updater.Designer.cs">
-      <DependentUpon>Updater.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Forms\Program.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Windows\Forms\Program.Designer.cs">
-      <DependentUpon>Program.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Networking\Protocols\Bootstrap\BootstrapConfiguration.cs">
+    <Compile Include="Bootstrap\BootstrapScannerEventArgs.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Networking\Protocols\Bootstrap\BootstrapConfigurationSetting.cs">
+    <Compile Include="PhysicalAddress.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Networking\Protocols\Bootstrap\BootstrapMessage.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Networking\Protocols\Bootstrap\BootstrapQueryType.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Networking\Protocols\Bootstrap\BootstrapScanner.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Networking\Protocols\Bootstrap\BootstrapScannerEventArgs.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Networking\PhysicalAddress.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Networking\PhysicalMedia.cs">
+    <Compile Include="PhysicalMedia.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -144,20 +136,6 @@
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Runtime\Versioning\Updater.resx">
-      <DependentUpon>Updater.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Windows\Forms\Program.resx">
-      <DependentUpon>Program.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="solster.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
